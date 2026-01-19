@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django-control-panel
+    ports:
+      - "4000:8000"
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    command: python manage.py runserver 0.0.0.0:8000
