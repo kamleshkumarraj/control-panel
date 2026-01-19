@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED=1
 # Correct and consistent paths
 WORKDIR /app/control-panel
 
-ENV VIRTUAL_ENV=/app/control-panel/.venv
+ENV VIRTUAL_ENV=/app/.venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN apt-get update && apt-get install -y \
@@ -29,7 +29,7 @@ RUN uv pip install \
     cryptography
 
 # Copy project files AFTER venv exists
-COPY ./control-panel .
+COPY . .
 
 EXPOSE 8000
 
